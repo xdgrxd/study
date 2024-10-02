@@ -1,0 +1,13 @@
+p {
+  color: greenyellow;
+  font-weight: 300;
+  background-color: green;
+  font-size: 2rem;
+}
+
+.my-component-paragraph {
+  background-color: gold;
+  color: black;
+  font-weight: 600;
+  font-size: 3rem;
+}
