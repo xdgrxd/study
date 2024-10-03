@@ -1,0 +1,9 @@
+.start h1 {
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+.bottomBtnText {
+  color: hsl(200, 100%, 40%);
+  font-weight: 500;
+}
