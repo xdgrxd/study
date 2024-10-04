@@ -1,9 +1,11 @@
 import "./EndScreen.css";
 
-const EndScreen = () => {
+const EndScreen = ({ gameRestart }) => {
   return (
-    <div>EndScreen</div>
-  )
-}
+    <div>
+      <button onClick={gameRestart}>TRY AGAIN</button>
+    </div>
+  );
+};
 
-export default EndScreen
+export default EndScreen;
