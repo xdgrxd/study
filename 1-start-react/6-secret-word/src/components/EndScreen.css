@@ -1,0 +1,12 @@
+h1 {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+h2 {
+  margin-bottom: 4rem;
+}
+
+h2 span {
+  color: gold;
+}
