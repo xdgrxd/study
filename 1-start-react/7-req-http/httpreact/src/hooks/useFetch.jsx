@@ -4,6 +4,8 @@ export const useFetch = (url) => {
   const [data, setData] = useState(null);
 
   // POST REFACTORING
+  // POST REFACTORING
+  // POST REFACTORING
   const [config, setConfig] = useState(null);
   const [method, setMethod] = useState(null);
   const [callFetch, setCallFetch] = useState(false);
@@ -13,7 +15,7 @@ export const useFetch = (url) => {
       setConfig({
         method,
         headers: {
-          "Contant-type": "application/json",
+          "Content-type": "application/json",
         },
         body: JSON.stringify(data),
       });

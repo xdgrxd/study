@@ -74,6 +74,31 @@
       "id": "15",
       "name": "Jacket",
       "price": 53.15
+    },
+    {
+      "id": "6553",
+      "name": "a",
+      "price": "2"
+    },
+    {
+      "id": "8ccc",
+      "name": "A",
+      "price": "2"
+    },
+    {
+      "id": "c314",
+      "name": "Bruna",
+      "price": "0.5"
+    },
+    {
+      "id": "e2fd",
+      "name": "mouse",
+      "price": "60"
+    },
+    {
+      "id": "7f6f",
+      "name": "a",
+      "price": "2"
     }
   ]
 }
