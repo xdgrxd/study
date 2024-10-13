@@ -1,7 +1,37 @@
-const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+import "./Home.css";
+import { Link } from "react-router-dom";
+import { useFetch } from "../hooks/useFetch";
 
-export default Home
+const Home = () => {
+  // DATA LOADING
+  // DATA LOADING
+  // DATA LOADING
+
+  const url = "http://localhost:3000/products";
+
+  const { data: items, loading, error } = useFetch(url);
+
+  return (
+    <div>
+      <h1>Products</h1>
+
+      {error && <p>{error}</p>}
+      <ul className="products">
+        {items &&
+          items.map((item) => (
+            <li key={item.id}>
+              <h2>{item.name}</h2>
+              <p>U$ {item.price}</p>
+
+              {/* DYNAMIC ROUTE */}
+              {/* DYNAMIC ROUTE */}
+              {/* DYNAMIC ROUTE */}
+              <Link to={`/products/${item.id}`}>Details</Link>
+            </li>
+          ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Home;
