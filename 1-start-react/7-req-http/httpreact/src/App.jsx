@@ -9,7 +9,7 @@ function App() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
 
-  const { data: items, httpConfig } = useFetch(url);
+  const { data: items, httpConfig, loading, error } = useFetch(url);
 
   // useEffect(() => {
   //   async function fetchData() {
@@ -62,14 +62,23 @@ function App() {
   return (
     <>
       <h1>Product List</h1>
-      <ul>
-        {items &&
-          items.map((item, i) => (
-            <li key={i}>
-              {item.name} - U${item.price}
-            </li>
-          ))}
-      </ul>
+      {/* LOADING */}
+      {/* LOADING */}
+      {/* LOADING */}
+      {loading && <p>Loading data...</p>}
+
+      {error && <p>{error}</p>}
+
+      {!error && (
+        <ul>
+          {items &&
+            items.map((item, i) => (
+              <li key={i}>
+                {item.name} - U${item.price}
+              </li>
+            ))}
+        </ul>
+      )}
 
       <div className="addProduct">
         <form onSubmit={handleSubmit}>
@@ -89,7 +98,11 @@ function App() {
             />
           </label>
 
-          <input type="submit" value="Add now" />
+          {/* POST LOADING */}
+          {/* POST LOADING */}
+          {/* POST LOADING */}
+          {!loading && <input type="submit" value="Add now" />}
+          {loading && <input type="submit" disabled value="Wait..." />}
         </form>
       </div>
     </>
