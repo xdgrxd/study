@@ -1,0 +1,148 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+html {
+  font-family: Montserrat;
+  margin: 0 auto;
+  background-color: black;
+  color: white;
+  max-width: 1280px;
+}
+
+body {
+}
+
+a {
+  text-decoration: none;
+}
+
+header.header {
+  background-color: greenyellow;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem 0;
+  border-radius: 0.5rem;
+}
+
+header.header a {
+  color: black;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0rem 2rem;
+  padding: 1rem 50px;
+  border-radius: 0.5rem;
+}
+
+header a:hover {
+  background-color: black;
+  color: greenyellow;
+}
+
+a.active {
+  background-color: black;
+  color: white !important;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.productFlex {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.productBox {
+  border: 1px solid greenyellow;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.productBox * {
+  margin-bottom: 1rem;
+}
+
+.nameProduct {
+  font-size: 1.7rem;
+}
+
+.priceProduct {
+  color: black;
+  background-color: greenyellow;
+  font-weight: 500;
+  font-size: 2rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+  font-weight: 600;
+}
+
+.buyBtn {
+  width: 100%;
+  border: none;
+  box-shadow: none;
+  font-size: 2rem;
+  background-color: transparent;
+  font-family: inherit;
+  border-radius: 2rem;
+  padding: 0.5rem 0;
+  border: 1px solid greenyellow;
+  color: greenyellow;
+}
+
+.buyBtn:hover {
+  border-color: white;
+  border-style: dashed;
+  cursor: pointer;
+}
+a.learnMoreLink {
+  display: inline-block;
+  text-decoration: underline;
+  color: inherit;
+}
+
+a.learnMoreLink:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.searchBar input[type="text"] {
+  background-color: transparent;
+  flex-grow: 1;
+  color: greenyellow;
+}
+
+.searchBar input[type="submit"] {
+  background-color: greenyellow;
+  color: black;
+  flex-grow: .3;
+}
+
+.searchBar input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+.searchBar input[type="text"],
+.searchBar input[type="submit"] {
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  border: 1px solid greenyellow;
+}
