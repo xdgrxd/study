@@ -3,8 +3,6 @@ import "./Products.css";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import Searchbar from "../components/Searchbar";
-
 const Products = () => {
   const [productData, setProductData] = useState([]);
   const url = "http://localhost:3000/products";
@@ -21,9 +19,7 @@ const Products = () => {
   }, []);
 
   return (
-    <div>
-      <Searchbar />
-      
+    <div>      
       <h1>Products</h1>
 
       <ul className="productFlex">
