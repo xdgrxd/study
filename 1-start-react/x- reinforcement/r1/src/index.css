@@ -132,7 +132,7 @@ a.learnMoreLink:hover {
 .searchBar input[type="submit"] {
   background-color: greenyellow;
   color: black;
-  flex-grow: .3;
+  flex-grow: 0.3;
 }
 
 .searchBar input[type="submit"]:hover {
