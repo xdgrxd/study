@@ -17,6 +17,11 @@
       "name": "Bluetooth Headphones",
       "price": 149.9,
       "purchase_count": 2300
+    },
+    {
+      "name": "a",
+      "price": "2",
+      "id": 4
     }
   ]
 }
