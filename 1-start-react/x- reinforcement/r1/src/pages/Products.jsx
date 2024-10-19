@@ -7,6 +7,10 @@ const Products = () => {
   const [productData, setProductData] = useState([]);
   const url = "http://localhost:3000/products";
 
+  const [productName, setProductName] = useState("");
+  const [productPrice, setProductPrice] = useState("");
+  const [productPurchases, setProductPurchases] = useState("");
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetch(url);
@@ -18,8 +22,64 @@ const Products = () => {
     fetchData();
   }, []);
 
+  const addProduct = async (e) => {
+    e.preventDefault();
+
+    const product = {
+      name: productName,
+      price: productPrice,
+      purchase_count: productPurchases,
+    };
+
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(product),
+      });
+
+      const addedProduct = await res.json();
+      setProductData((antigo) => [...antigo, addedProduct]);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
-    <div>      
+    <div>
+      <h2>Add product</h2>
+
+      <form onSubmit={addProduct} className="addProductForm">
+        <input
+          type="text"
+          name="productName"
+          placeholder="Product name"
+          required
+          onChange={(e) => setProductName(e.target.value)}
+          value={productName}
+        />
+        <input
+          type="number"
+          name="productPrice"
+          placeholder="Price"
+          required
+          onChange={(e) => setProductPrice(e.target.value)}
+          value={productPrice}
+        />
+        <input
+          type="text"
+          name="productPurchases"
+          placeholder="Purchases"
+          required
+          onChange={(e) => setProductPurchases(e.target.value)}
+          value={productPurchases}
+        />
+
+        <input type="submit" value="Add product" />
+      </form>
+
       <h1>Products</h1>
 
       <ul className="productFlex">
