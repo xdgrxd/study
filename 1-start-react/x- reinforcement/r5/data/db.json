@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Coffee Maker",
+      "price": 199.9,
+      "purchases": 1596
+    },
+    {
+      "id": 2,
+      "name": "Smartphone",
+      "price": 999.9,
+      "purchases": 1223
+    },
+    {
+      "id": 3,
+      "name": "Cooktop",
+      "price": 255.9,
+      "purchases": 5639
+    },
+    {
+      "name": "a",
+      "price": "1",
+      "purchases": "2",
+      "id": 4
+    }
+  ]
+}
