@@ -1,0 +1,37 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Smartphone",
+      "price": 999.99
+    },
+    {
+      "id": 2,
+      "name": "Screen",
+      "price": 483.12
+    },
+    {
+      "id": 3,
+      "name": "Joystick",
+      "price": 112.13
+    },
+    {
+      "name": "a",
+      "price": "1",
+      "purchases": "2",
+      "id": 4
+    },
+    {
+      "name": "a",
+      "price": "1",
+      "purchases": "2",
+      "id": 5
+    },
+    {
+      "name": "a",
+      "price": "1",
+      "purchases": "2",
+      "id": 6
+    }
+  ]
+}
