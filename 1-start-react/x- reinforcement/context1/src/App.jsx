@@ -37,11 +37,19 @@ function App() {
     setProductPurchases("");
   };
 
-  const { color } = useTitleColorContext();
+  const { color, dispatch } = useTitleColorContext();
+
+  const setTitleColor = (color) => {
+    dispatch({ type: color });
+  };
 
   return (
     <>
       <h1 style={{ color: color }}>Comple Context</h1>
+      <button onClick={() => setTitleColor("RED")}>RED</button>
+      <button onClick={() => setTitleColor("BLUE")}>BLUE</button>
+      <button onClick={() => setTitleColor("GREEN")}>GREEN</button>
+      <button onClick={() => setTitleColor("k")}>DEFAULT</button>
 
       <p>Counter Value: {counter}</p>
       <ChangeCounter />
