@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product 1",
+      "price": 19.9,
+      "purchases": 1736
+    },
+    {
+      "id": 2,
+      "name": "Product 2",
+      "price": 132.1,
+      "purchases": 103
+    },
+    {
+      "id": 3,
+      "name": "Product 3",
+      "price": 263.37,
+      "purchases": 9563
+    },
+    {
+      "name": "Dolly",
+      "price": "1",
+      "purchases": "3",
+      "id": 4
+    }
+  ]
+}
