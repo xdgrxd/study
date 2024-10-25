@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 
 export const useFetch = (url) => {
   const [data, setData] = useState(null);
-  const [method, setMethod] = useState(null);
   const [callFetch, setCallFetch] = useState(null);
-  const [error, setError] = useState("");
-  const [config, setConfig] = useState({});
+  const [config, setConfig] = useState(null);
+  const [method, setMethod] = useState(null);
 
   const httpConfig = (data, method) => {
     if (method === "POST") {
@@ -16,39 +15,36 @@ export const useFetch = (url) => {
         },
         body: JSON.stringify(data),
       });
+
       setMethod(method);
     }
   };
 
   useEffect(() => {
-    try {
-      const fetchData = async () => {
-        const res = await fetch(url);
-        const json = await res.json();
+    const fetchData = async () => {
+      const res = await fetch(url);
+      const json = await res.json();
 
-        setData(json);
-      };
+      setData(json);
+    };
 
-      fetchData();
-    } catch (e) {
-      setError(e.message);
-      console.log(error);
-    }
+    fetchData();
   }, [url, callFetch]);
 
   useEffect(() => {
     if (method === "POST") {
       const httpRequest = async () => {
-        let fetchOptions = [url, config];
+        let postConfig = [url, config];
 
-        const res = await fetch(...fetchOptions);
-        const json = await res.json();
+        const res = await fetch(...postConfig);
+        const json = res.json();
 
         setCallFetch(json);
       };
+
       httpRequest();
     }
-  }, [config, method, url]);
+  }, [url, method, config]);
 
   return { data, httpConfig };
 };
