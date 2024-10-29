@@ -1,21 +1,23 @@
 import "./App.css";
-import { useFetch } from "./hooks/useFetch";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Cep from "./pages/Cep";
+import NavBar from "./components/NavBar";
 
 function App() {
-  const url = "http://localhost:3000/products/";
-
-  const { data, loading } = useFetch(url);
-  console.log(data);
 
   return (
     <>
-      {loading && <p>Loading...</p>}
-      {!loading &&
-        data.map((item) => (
-          <li>
-            {item.name} - U${item.price} - {item.purchases} Purchases
-          </li>
-        ))}
+      <BrowserRouter>
+      <NavBar></NavBar>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cep" element={<Cep />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
