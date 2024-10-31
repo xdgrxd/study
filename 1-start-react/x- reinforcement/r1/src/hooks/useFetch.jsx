@@ -4,9 +4,22 @@ export const useFetch = (url) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [method, setMethod] = useState("");
+  const [callFetch, setCallFetch] = useState(null);
+  const [config, setConfig] = useState(null);
 
-  const httpConfig = () => {
-    
+  const httpConfig = (method, data) => {
+    if (method === "POST") {
+      setConfig({
+        method,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+    }
+
+    setMethod(method);
   };
 
   useEffect(() => {
@@ -25,7 +38,22 @@ export const useFetch = (url) => {
       setError(e);
       console.log(e.message);
     }
-  }, [url]);
+  }, [url, callFetch]);
 
-  return { data, loading, error };
+  useEffect(() => {
+    const httpRequest = async () => {
+      if (method === "POST") {
+        let fetchOptions = [url, config];
+
+        const res = await fetch(...fetchOptions);
+        const json = await res.json();
+
+        setCallFetch(json);
+      }
+    };
+
+    httpRequest();
+  }, [config, method, url]);
+
+  return { data, loading, error, httpConfig };
 };
