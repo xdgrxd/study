@@ -1,6 +1,6 @@
 import MainPage from "../components/MainPage";
 
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { useFetch } from "../hooks/useFetch";
 import { useState } from "react";
@@ -35,7 +35,7 @@ const Products = () => {
                 products.map((item) => (
                   <li key={item.id}>
                     {item.name} - U${item.price} - {item.purchases} purchases
-                    <NavLink to={`/product/${item.name}`}>Learn more</NavLink>
+                    <Link to={`/products/${item.id}`}>Learn more</Link>
                   </li>
                 ))}
             </ul>
