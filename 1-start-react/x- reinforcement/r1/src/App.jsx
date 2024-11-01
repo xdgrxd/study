@@ -7,7 +7,7 @@ import Search from "./pages/Search";
 
 import "./App.css";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Info from "./pages/Info";
 import SearchBar from "./components/SearchBar";
@@ -26,6 +26,10 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/search" element={<Search/>} />
           <Route path="/*" element={<NotFound />} />
+
+          {/* REDIRECT */}
+          <Route path="/company" element={<Navigate to="/about"/>}/>
+          
         </Routes>
       </BrowserRouter>
     </>
