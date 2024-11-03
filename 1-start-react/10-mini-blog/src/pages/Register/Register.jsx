@@ -8,7 +8,6 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-  const [validPassword, setValidPassword] = useState(false);
 
   const { createUser, error: authError, loading } = useAuthentication();
 
@@ -97,9 +96,10 @@ const Register = () => {
             placeholder="Again your best password"
           />
         </label>
+        
         <div className={styles.passwordTextVerify}>
-          {password !== confirmPassword ? (
-            <p className={styles.errorPassword}>The passwords aren'the same.</p>
+          {password !== confirmPassword || !password ? (
+            <p className={styles.errorPassword}>The passwords aren't the same.</p>
           ) : (
             <p className={styles.validPassword}>The passwords are the same!</p>
           )}
