@@ -1,0 +1,25 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .4rem 2rem;
+  background-color: black;
+}
+
+.brand {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.linkList {
+  display: flex;
+  list-style: none;
+}
+
+.linkList li {
+  margin-right: 1rem;
+}
+
+.linkList li a {
+  padding: .4rem .6rem;
+}
