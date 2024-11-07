@@ -1,0 +1,161 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Bluetooth Headphones",
+      "price": 149.9,
+      "purchases": 350,
+      "categories": [
+        "Electronics",
+        "Audio",
+        "Accessories"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "RGB Gaming Mouse",
+      "price": 89.9,
+      "purchases": 420,
+      "categories": [
+        "Electronics",
+        "Computers",
+        "Accessories"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Stainless Steel Blender",
+      "price": 199.9,
+      "purchases": 185,
+      "categories": [
+        "Appliances",
+        "Kitchen"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Smartphone 128GB",
+      "price": 1299,
+      "purchases": 620,
+      "categories": [
+        "Electronics",
+        "Mobile",
+        "Smartphones"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Ergonomic Office Chair",
+      "price": 499.9,
+      "purchases": 95,
+      "categories": [
+        "Furniture",
+        "Office",
+        "Comfort"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Non-Stick Pan 24cm",
+      "price": 79.9,
+      "purchases": 220,
+      "categories": [
+        "Kitchen",
+        "Utensils",
+        "Cookware"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Fitness Smartwatch",
+      "price": 229.9,
+      "purchases": 310,
+      "categories": [
+        "Electronics",
+        "Wearables",
+        "Watches"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Electric Shower Head with Turbo",
+      "price": 159.9,
+      "purchases": 140,
+      "categories": [
+        "Home",
+        "Bath",
+        "Heating"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Electric Toothbrush",
+      "price": 59.9,
+      "purchases": 410,
+      "categories": [
+        "Health",
+        "Hygiene",
+        "Personal Care"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "32-Piece Tool Kit",
+      "price": 89.9,
+      "purchases": 275,
+      "categories": [
+        "Tools",
+        "Maintenance",
+        "Utilities"
+      ]
+    },
+    {
+      "name": "a",
+      "price": "1",
+      "purchases": "2",
+      "id": 11
+    },
+    {
+      "name": "a",
+      "price": "1",
+      "purchases": "2",
+      "id": 12
+    },
+    {
+      "name": "a",
+      "price": "1",
+      "purchases": "2",
+      "id": 13
+    },
+    {
+      "name": "a",
+      "price": "1",
+      "purchases": "565465",
+      "id": 14
+    },
+    {
+      "name": "a",
+      "price": "1",
+      "purchases": "2",
+      "id": 15
+    },
+    {
+      "name": "abc",
+      "price": "1",
+      "purchases": "2",
+      "id": 16
+    },
+    {
+      "name": "a",
+      "price": "1",
+      "purchases": "2",
+      "id": 17
+    },
+    {
+      "name": "a",
+      "price": "1",
+      "purchases": "2",
+      "id": 18
+    }
+  ]
+}
