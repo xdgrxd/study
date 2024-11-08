@@ -1,4 +1,4 @@
-import { db } from "../firebase/config";
+import { db, app } from "../firebase/config";
 
 import {
   getAuth,
@@ -17,7 +17,7 @@ export const useAuthentication = () => {
   // DEAL WITH MEMORY LEAK
   const [cancelled, setCancelled] = useState(false);
 
-  const auth = getAuth();
+  const auth = getAuth(app);
 
   const checkIfIsCancelled = () => {
     if (cancelled) {
@@ -65,6 +65,37 @@ export const useAuthentication = () => {
     }
   };
 
+  const logout = () => {
+    checkIfIsCancelled();
+    signOut(auth);
+  };
+
+  const login = async (data) => {
+    checkIfIsCancelled();
+
+    setLoading(true);
+    setError("");
+
+    try {
+      await signInWithEmailAndPassword(auth, data.email, data.password);
+      setLoading(false);
+
+    } catch (error) {
+      let systemErrorMsg;
+
+      if (error.message.includes("auth/weak-password")) {
+        systemErrorMsg = "User not found.";
+      } else if (error.message.includes("wrong-password")) {
+        systemErrorMsg = "Wrong password.";
+      } else {
+        systemErrorMsg = "Invalid data. Try again.";
+      }
+
+      setError(systemErrorMsg);
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     return () => setCancelled(true);
   }, []);
@@ -74,5 +105,7 @@ export const useAuthentication = () => {
     createUser,
     error,
     loading,
+    logout,
+    login
   };
 };

@@ -9,6 +9,8 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   const { user } = useAuthValue();
 
+  const { logout } = useAuthentication();
+
   return (
     <nav className={styles.navbar}>
       <NavLink
@@ -44,6 +46,11 @@ const Navbar = () => {
         <li>
           <NavLink to="/about">About</NavLink>
         </li>
+        {user && (
+          <li>
+            <button onClick={logout}>Logout</button>
+          </li>
+        )}
       </ul>
     </nav>
   );
