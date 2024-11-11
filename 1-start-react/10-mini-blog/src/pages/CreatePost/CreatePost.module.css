@@ -1,0 +1,8 @@
+.createPost {
+  text-align: center;
+}
+
+.createPost p {
+  color: #aaa;
+  margin-top: 2rem;
+}
