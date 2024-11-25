@@ -15,6 +15,12 @@ const Dashboard = () => {
     error,
   } = useFetchDocuments("posts", null, uid);
 
+  const deleteDocument = (id) => {};
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div>
       <h1>Dashboard</h1>
@@ -27,9 +33,33 @@ const Dashboard = () => {
           </Link>
         </div>
       ) : (
-        <div>
-          <p>Posts!</p>
-        </div>
+        <>
+          <div>
+            <p>Posts!</p>
+          </div>
+
+          {posts && posts.map((post) => (
+            <div key={post.id}>
+              <p>{post.title}</p>
+              <div>
+                <Link to={`/posts/${post.id}`} className="btn outline">
+                  See more
+                </Link>
+
+                <Link to={`/posts/edit/${post.id}`} className="btn outline">
+                  Edit post
+                </Link>
+
+                <button
+                  onClick={() => deleteDocument(post.id)}
+                  className="btn danger"
+                >
+                  Delete post
+                </button>
+              </div>
+            </div>
+          ))}
+        </>
       )}
 
       {posts && posts.map((post) => <h3 key={post.id}>{post.title}</h3>)}
