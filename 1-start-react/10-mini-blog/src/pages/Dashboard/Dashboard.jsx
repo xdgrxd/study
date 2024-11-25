@@ -22,11 +22,11 @@ const Dashboard = () => {
   }
 
   return (
-    <div>
+    <div className={styles.dashboard}>
       <h1>Dashboard</h1>
       <p>Manage your posts!</p>
       {posts && posts.length === 0 ? (
-        <div>
+        <div className={styles.noposts}>
           <p>Posts not found.</p>
           <Link to="/posts/create/" className="btn">
             Create first post
@@ -34,35 +34,35 @@ const Dashboard = () => {
         </div>
       ) : (
         <>
-          <div>
-            <p>Posts!</p>
+          <div className={styles.post_header}>
+            <span>Title</span>
+            <span>Actions</span>
           </div>
 
-          {posts && posts.map((post) => (
-            <div key={post.id}>
-              <p>{post.title}</p>
-              <div>
-                <Link to={`/posts/${post.id}`} className="btn outline">
-                  See more
-                </Link>
+          {posts &&
+            posts.map((post) => (
+              <div key={post.id} className={styles.post_row}>
+                <p>{post.title}</p>
+                <div>
+                  <Link to={`/posts/${post.id}`} className="btn outline">
+                    View post
+                  </Link>
 
-                <Link to={`/posts/edit/${post.id}`} className="btn outline">
-                  Edit post
-                </Link>
+                  <Link to={`/posts/edit/${post.id}`} className="btn outline">
+                    Edit post
+                  </Link>
 
-                <button
-                  onClick={() => deleteDocument(post.id)}
-                  className="btn danger"
-                >
-                  Delete post
-                </button>
+                  <button
+                    onClick={() => deleteDocument(post.id)}
+                    className="btn danger"
+                  >
+                    Delete post
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </>
       )}
-
-      {posts && posts.map((post) => <h3 key={post.id}>{post.title}</h3>)}
     </div>
   );
 };
