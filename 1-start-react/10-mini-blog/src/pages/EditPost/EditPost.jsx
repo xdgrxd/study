@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAuthValue } from "../../contexts/AuthContext";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
-import { useFetchDocuments } from "../../hooks/useFetchDocuments";
+import { useUpdateDocument } from "../../hooks/useUpdateDocument";
 
 const EditPost = () => {
   const { id } = useParams();
@@ -32,7 +32,7 @@ const EditPost = () => {
   const { user } = useAuthValue();
   const navigate = useNavigate();
 
-  const { insertDocument, response } = useInsertDocument("posts");
+  const { updateDocument, response } = useUpdateDocument("posts");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,17 +55,19 @@ const EditPost = () => {
 
     if (formError) return;
 
-    insertDocument({
+    const data = {
       title,
       image,
       body,
       tagsArray,
       uid: user.uid,
       createdBy: user.displayName,
-    });
+    };
+
+    updateDocument(id, data);
 
     // REDIRECT TO HOMEPAGE
-    navigate("/");
+    navigate("/dashboard");
   };
 
   return (
