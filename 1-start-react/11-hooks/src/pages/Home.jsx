@@ -6,6 +6,8 @@ import HookUseEffect from "../components/HookUseEffect";
 import { useContext } from "react";
 import { SomeContext } from "../components/HookUseContext";
 
+import HookUseRef from "../components/HookUseRef";
+
 const Home = () => {
   const { contextValue } = useContext(SomeContext);
 
@@ -19,6 +21,8 @@ const Home = () => {
       <hr />
       <h2>useContext</h2>
       <p>Context value: {contextValue}</p>
+      <hr />
+      <HookUseRef></HookUseRef>
       <hr />
     </>
   );
