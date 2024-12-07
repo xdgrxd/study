@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const HookUseEffect = () => {
   useEffect(() => {
-    console.log("ME");
+    // console.log("ME");
   }, []);
 
   const [number, setNumber] = useState(1);
@@ -12,14 +12,14 @@ const HookUseEffect = () => {
   };
 
   useEffect(() => {
-    console.log("JUST ONE TIME!");
+    // console.log("JUST ONE TIME!");
   }, []);
 
   const [anotherNumber, setAnotherNumber] = useState(0);
 
   useEffect(() => {
     if (anotherNumber > 0) {
-      console.log("ANOTHER NUMBER CHANGED!!!");
+      // console.log("ANOTHER NUMBER CHANGED!!!");
     }
   }, [anotherNumber]);
 
