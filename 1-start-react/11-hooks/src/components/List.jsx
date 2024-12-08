@@ -4,7 +4,7 @@ const List = ({ getItems }) => {
   const [myItems, setMyItems] = useState([]);
 
   useEffect(() => {
-    console.log("Fetching data...");
+    // console.log("Fetching data...");
 
     setMyItems(getItems);
   }, [getItems]);

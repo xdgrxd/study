@@ -9,7 +9,7 @@ const HookUseMemo = () => {
   }, []);
 
   useEffect(() => {
-    console.log("Premium number has been changed!");
+    // console.log("Premium number has been changed!");
   }, [premiumNumbers]);
 
   return (
