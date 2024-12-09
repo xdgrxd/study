@@ -37,6 +37,7 @@ const Home = () => {
       <HookUseImperativeHandle />
       <hr />
       <HookCustom />
+      <hr />
     </>
   );
 };
