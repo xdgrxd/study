@@ -3,6 +3,7 @@ import Destructuring from "./components/Destructuring";
 
 import FirstComponent from "./components/FirstComponent";
 import SecondComponent from "./components/SecondComponent";
+import State from "./components/State";
 
 function App() {
   const name: string = "Gui";
@@ -33,6 +34,8 @@ function App() {
         commentsQty={5}
         tags={["js", "ts"]}
       />
+
+      <State />
     </>
   );
 }
