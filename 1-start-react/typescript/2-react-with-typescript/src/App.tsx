@@ -1,6 +1,8 @@
-import './App.css'
+import "./App.css";
+import Destructuring from "./components/Destructuring";
 
-import FirstComponent from './components/FirstComponent';
+import FirstComponent from "./components/FirstComponent";
+import SecondComponent from "./components/SecondComponent";
 
 function App() {
   const name: string = "Gui";
@@ -8,8 +10,8 @@ function App() {
   const isWorking: boolean = true;
 
   const userGreeting = (name: string): string => {
-    return `Hi, ${name}!`
-  }
+    return `Hi, ${name}!`;
+  };
 
   return (
     <>
@@ -21,9 +23,18 @@ function App() {
       {isWorking && <p>{name} is working! xD</p>}
 
       <h3>{userGreeting(name)}</h3>
-      <FirstComponent/>
+      <FirstComponent />
+
+      <SecondComponent name="I'AM THE FCKNG SECOND NAMEEE" />
+
+      <Destructuring
+        title="First Post"
+        content="Some content!"
+        commentsQty={5}
+        tags={["js", "ts"]}
+      />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
