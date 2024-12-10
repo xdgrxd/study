@@ -1,12 +1,14 @@
 import './App.css'
 
+import FirstComponent from './components/FirstComponent';
+
 function App() {
   const name: string = "Gui";
   const age: number = 22;
   const isWorking: boolean = true;
 
   const userGreeting = (name: string): string => {
-    return `Olá, ${name}!`
+    return `Hi, ${name}!`
   }
 
   return (
@@ -19,6 +21,7 @@ function App() {
       {isWorking && <p>{name} is working! xD</p>}
 
       <h3>{userGreeting(name)}</h3>
+      <FirstComponent/>
     </>
   )
 }
