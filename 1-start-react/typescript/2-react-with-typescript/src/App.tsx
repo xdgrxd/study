@@ -1,5 +1,5 @@
 import "./App.css";
-import Destructuring from "./components/Destructuring";
+import Destructuring, { Category } from "./components/Destructuring";
 
 import FirstComponent from "./components/FirstComponent";
 import SecondComponent from "./components/SecondComponent";
@@ -33,6 +33,15 @@ function App() {
         content="Some content!"
         commentsQty={5}
         tags={["js", "ts"]}
+        category={Category.TS}
+      />
+      
+      <Destructuring
+        title="First Post"
+        content="Some content!"
+        commentsQty={5}
+        tags={["js", "ts"]}
+        category={Category.P}
       />
 
       <State />
