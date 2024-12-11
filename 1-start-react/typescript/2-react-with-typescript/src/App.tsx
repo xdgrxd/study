@@ -5,6 +5,7 @@ import Destructuring, { Category } from "./components/Destructuring";
 import FirstComponent from "./components/FirstComponent";
 import SecondComponent from "./components/SecondComponent";
 import State from "./components/State";
+import Context from "./components/Context";
 
 type textOrNull = string | null;
 
@@ -67,6 +68,8 @@ function App() {
         {myText && <p>Text in variable!</p>}
         {mySecondText && <p>Text in variable!</p>}
         {testingFixed && <p>YESSS!</p>}
+
+        <Context/>
       </>
     </AppContext.Provider>
   );
