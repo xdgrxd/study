@@ -5,6 +5,10 @@ import FirstComponent from "./components/FirstComponent";
 import SecondComponent from "./components/SecondComponent";
 import State from "./components/State";
 
+type textOrNull = string | null;
+
+type fixed = "this" | "or" | "that";
+
 function App() {
   const name: string = "Gui";
   const age: number = 22;
@@ -13,6 +17,13 @@ function App() {
   const userGreeting = (name: string): string => {
     return `Hi, ${name}!`;
   };
+
+  const myText: textOrNull = "Any text!";
+  let mySecondText: textOrNull = null;
+
+  mySecondText = "Whopsy!";
+
+  const testingFixed: fixed = "this";
 
   return (
     <>
@@ -35,7 +46,7 @@ function App() {
         tags={["js", "ts"]}
         category={Category.TS}
       />
-      
+
       <Destructuring
         title="First Post"
         content="Some content!"
@@ -45,6 +56,9 @@ function App() {
       />
 
       <State />
+
+      {myText && <p>Text in variable!</p>}
+      {testingFixed && <p>YESSS!</p>}
     </>
   );
 }
