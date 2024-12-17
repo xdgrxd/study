@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "airbnb",
+    "prettier" // Desativa regras de formatação conflitantes
+  ],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error" // Exibe erros de Prettier no ESLint
+  }
+}
