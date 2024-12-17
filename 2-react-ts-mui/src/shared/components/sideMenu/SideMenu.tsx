@@ -9,7 +9,9 @@ import {
   ListItemText,
   Icon,
   ListItemButton,
+  useMediaQuery,
 } from '@mui/material';
+import { useDrawerContext } from '../../contexts';
 
 interface IDrawerProviderProps {
   children: React.ReactNode;
@@ -17,12 +19,19 @@ interface IDrawerProviderProps {
 
 export const SideMenu: React.FC<IDrawerProviderProps> = ({ children }) => {
   const theme = useTheme();
+  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const { isDrawerOpen, toggleDrawerOpen } = useDrawerContext();
 
   return (
     <>
-      <Drawer variant="permanent">
+      <Drawer
+        open={isDrawerOpen}
+        variant={smDown ? 'temporary' : 'permanent'}
+        onClose={toggleDrawerOpen}
+      >
         <Box
-          width={theme.spacing(28)}
+          width={theme.spacing(32)}
           height={'100%'}
           display={'flex'}
           flexDirection={'column'}
@@ -55,7 +64,7 @@ export const SideMenu: React.FC<IDrawerProviderProps> = ({ children }) => {
           </Box>
         </Box>
       </Drawer>
-      <Box height={'100vh'} marginLeft={theme.spacing(28)}>
+      <Box height={'100vh'} marginLeft={smDown ? 0 : theme.spacing(32)}>
         {children}
       </Box>
     </>
