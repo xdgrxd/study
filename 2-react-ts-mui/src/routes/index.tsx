@@ -19,7 +19,7 @@ export const AppRoutes = () => {
           </Button>
         }
       />
-      <Route path="*" element={<Navigate to="/home" />} />
+      {/* <Route path="*" element={<Navigate to="/home" />} /> */}
     </Routes>
   );
 };
