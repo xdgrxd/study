@@ -22,7 +22,7 @@ export const SideMenu: React.FC<IDrawerProviderProps> = ({ children }) => {
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const { isDrawerOpen, toggleDrawerOpen } = useDrawerContext();
+  const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
 
   interface IListItemLinkProps {
     to: string;
@@ -87,12 +87,15 @@ export const SideMenu: React.FC<IDrawerProviderProps> = ({ children }) => {
 
           <Box flex={1}>
             <List component="nav">
-              <ListItemLink
-                icon="home"
-                to="/"
-                label="Home"
-                onClick={smDown ? toggleDrawerOpen : undefined}
-              />
+              {drawerOptions.map((drawerOption) => (
+                <ListItemLink
+                  key={drawerOption.path}
+                  icon={drawerOption.icon}
+                  to={drawerOption.path}
+                  label={drawerOption.label}
+                  onClick={smDown ? toggleDrawerOpen : undefined}
+                />
+              ))}
             </List>
           </Box>
         </Box>

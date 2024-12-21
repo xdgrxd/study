@@ -33,7 +33,7 @@ export const DrawerProvider: React.FC<IDrawerProvider> = ({ children }) => {
 
   const handleSetDrawerOptions = useCallback(
     (newDrawerOptions: IDrawerOption[]) => {
-      setIsDrawerOpen(newDrawerOptions);
+      setDrawerOptions(newDrawerOptions);
     },
     []
   );
