@@ -11,7 +11,7 @@ import {
   ListItemButton,
   useMediaQuery,
 } from '@mui/material';
-import { useDrawerContext } from '../../contexts';
+import { useAppThemeContext, useDrawerContext } from '../../contexts';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 
 interface IDrawerProviderProps {
@@ -23,6 +23,7 @@ export const SideMenu: React.FC<IDrawerProviderProps> = ({ children }) => {
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
+  const { toggleTheme } = useAppThemeContext();
 
   interface IListItemLinkProps {
     to: string;
@@ -96,6 +97,20 @@ export const SideMenu: React.FC<IDrawerProviderProps> = ({ children }) => {
                   onClick={smDown ? toggleDrawerOpen : undefined}
                 />
               ))}
+            </List>
+          </Box>
+          <Box>
+            <List component="nav">
+              <ListItemButton onClick={toggleTheme}>
+                <ListItemIcon>
+                  {true && true ? (
+                    <Icon>dark_mode</Icon>
+                  ) : (
+                    <Icon>light_mode</Icon>
+                  )}
+                </ListItemIcon>
+                <ListItemText primary="Change theme" />
+              </ListItemButton>
             </List>
           </Box>
         </Box>
