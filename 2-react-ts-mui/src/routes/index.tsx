@@ -23,7 +23,8 @@ export const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route path="/home" element={<Dashboard />} />
+      <Route path="/" element={<Dashboard />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       {/* <Route path="*" element={<Navigate to="/home" />} /> */}
     </Routes>
   );
