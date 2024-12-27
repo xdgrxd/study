@@ -17,7 +17,7 @@ interface IToolBar {
   onClickNew?: () => void;
 }
 
-export const ToolBar: React.FC<IToolBar> = ({
+export const ToolListItems: React.FC<IToolBar> = ({
   searchText = '',
   showSearchInput = false,
   searchTextOnChange,

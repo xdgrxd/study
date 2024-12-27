@@ -1,10 +1,10 @@
-import { ToolBar } from "../../shared/components";
+import { ToolListItems } from "../../shared/components";
 import { DefaultPageLayout } from "../../shared/layouts"
 
 export const Dashboard = () => {
 
   return (
-    <DefaultPageLayout title="Home Page" toolBar={(<ToolBar showSearchInput/>)}>
+    <DefaultPageLayout title="Home Page" toolBar={(<ToolListItems showSearchInput/>)}>
       Testando kkk
     </DefaultPageLayout>
   );
