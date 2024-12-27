@@ -1,6 +1,32 @@
 import { Box, Button, Icon, Paper, useTheme } from '@mui/material';
 
-export const DetailTools: React.FC = () => {
+interface IDetailToolsProps {
+  buttonNewText?: string;
+
+  showNewButton?: boolean;
+  showBackButton?: boolean;
+  showDeleteButton?: boolean;
+  showSaveButton?: boolean;
+
+  onClickNew?: () => void;
+  onClickBack?: () => void;
+  onClickDelete?: () => void;
+  onClickSave?: () => void;
+}
+
+export const DetailTools: React.FC<IDetailToolsProps> = ({
+  buttonNewText = 'New',
+
+  showNewButton = true,
+  showBackButton = true,
+  showDeleteButton = true,
+  showSaveButton = true,
+
+  onClickNew,
+  onClickBack,
+  onClickDelete,
+  onClickSave,
+}) => {
   const theme = useTheme();
   const spacing = theme.spacing;
 
@@ -17,40 +43,52 @@ export const DetailTools: React.FC = () => {
       justifyContent="space-between"
     >
       <Box>
-        <Button
-          variant="contained"
-          disableElevation
-          startIcon={<Icon>arrow_back</Icon>}
-        >
-          Back
-        </Button>
+        {showBackButton && (
+          <Button
+            onClick={onClickBack}
+            variant="contained"
+            disableElevation
+            startIcon={<Icon>arrow_back</Icon>}
+          >
+            Back
+          </Button>
+        )}
       </Box>
 
       <Box display="flex" gap={1}>
-        <Button
-          variant="contained"
-          disableElevation
-          startIcon={<Icon>add</Icon>}
-          color="info"
-        >
-          New
-        </Button>
-        <Button
-          variant="contained"
-          disableElevation
-          startIcon={<Icon>save</Icon>}
-          color="success"
-        >
-          Save
-        </Button>
-        <Button
-          variant="contained"
-          disableElevation
-          startIcon={<Icon>delete</Icon>}
-          color="error"
-        >
-          Delete
-        </Button>
+        {showNewButton && (
+          <Button
+            onClick={onClickNew}
+            variant="contained"
+            disableElevation
+            startIcon={<Icon>add</Icon>}
+            color="info"
+          >
+            {buttonNewText}
+          </Button>
+        )}
+        {showSaveButton && (
+          <Button
+            onClick={onClickSave}
+            variant="contained"
+            disableElevation
+            startIcon={<Icon>save</Icon>}
+            color="success"
+          >
+            Save
+          </Button>
+        )}
+        {showDeleteButton && (
+          <Button
+            onClick={onClickDelete}
+            variant="contained"
+            disableElevation
+            startIcon={<Icon>delete</Icon>}
+            color="error"
+          >
+            Delete
+          </Button>
+        )}
       </Box>
     </Box>
   );

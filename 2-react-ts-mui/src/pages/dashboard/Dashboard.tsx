@@ -5,7 +5,7 @@ import { DefaultPageLayout } from "../../shared/layouts"
 export const Dashboard = () => {
 
   return (
-    <DefaultPageLayout title="Home Page" toolBar={(<DetailTools/>)}>
+    <DefaultPageLayout title="Home Page" toolBar={<DetailTools />}>
       Testando kkk
     </DefaultPageLayout>
   );
