@@ -1,4 +1,14 @@
-import { Box, Button, Icon, Paper, Skeleton, useTheme } from '@mui/material';
+import {
+  Box,
+  Button,
+  Icon,
+  Paper,
+  Skeleton,
+  Theme,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 
 interface IDetailToolsProps {
   buttonNewText?: string;
@@ -37,6 +47,9 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
   onClickDelete,
   onClickSave,
 }) => {
+  const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
+  const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
+
   const theme = useTheme();
   const spacing = theme.spacing;
 
@@ -46,113 +59,133 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
       marginX={1}
       padding={1}
       paddingX={2}
+      paddingY={1.75}
       display="flex"
       component={Paper}
-      height={spacing(5)}
       alignItems="center"
-      justifyContent="space-between"
     >
-      <Box>
-        {showBackButton &&
-          (showBackButtonLoading ? (
+      {showBackButton &&
+        (!showBackButtonLoading ? (
+          <Button
+            onClick={onClickBack}
+            variant="contained"
+            disableElevation
+            sx={{flex: showBackButton && smDown && 1}}
+            startIcon={<Icon>arrow_back</Icon>}
+          >
+            <Typography variant="button" noWrap>
+              Back
+            </Typography>
+          </Button>
+        ) : (
+          <Skeleton animation="wave" sx={{ transform: 'unset' }}>
             <Button
               onClick={onClickBack}
               variant="contained"
               disableElevation
+              sx={{flex: showBackButton && smDown && 1}}
               startIcon={<Icon>arrow_back</Icon>}
             >
-              Back
-            </Button>
-          ) : (
-            <Skeleton animation="wave" sx={{ transform: 'unset' }}>
-              <Button
-                onClick={onClickBack}
-                variant="contained"
-                disableElevation
-                startIcon={<Icon>arrow_back</Icon>}
-              >
+              <Typography variant="button" noWrap>
                 Back
-              </Button>
-            </Skeleton>
-          ))}
-      </Box>
+              </Typography>
+            </Button>
+          </Skeleton>
+        ))}
 
-      <Box display="flex" gap={1}>
-        {showNewButton &&
-          (showNewButtonLoading ? (
+      {showNewButton &&
+        !smDown && !mdDown &&
+        (!showNewButtonLoading ? (
+          <Button
+            onClick={onClickNew}
+            variant="contained"
+            disableElevation
+            sx={{flex: showBackButton && smDown && 1}}
+            startIcon={<Icon>add</Icon>}
+            color="info"
+          >
+            <Typography variant="button" noWrap>
+              {buttonNewText}
+            </Typography>
+          </Button>
+        ) : (
+          <Skeleton animation="wave" sx={{ transform: 'unset' }}>
             <Button
               onClick={onClickNew}
               variant="contained"
               disableElevation
+              sx={{flex: showBackButton && smDown && 1}}
               startIcon={<Icon>add</Icon>}
               color="info"
             >
-              {buttonNewText}
-            </Button>
-          ) : (
-            <Skeleton animation="wave" sx={{ transform: 'unset' }}>
-              <Button
-                onClick={onClickNew}
-                variant="contained"
-                disableElevation
-                startIcon={<Icon>add</Icon>}
-                color="info"
-              >
+              <Typography variant="button" noWrap>
                 {buttonNewText}
-              </Button>
-            </Skeleton>
-          ))}
+              </Typography>
+            </Button>
+          </Skeleton>
+        ))}
 
-        {showSaveButton &&
-          (showSaveButtonLoading ? (
+      {showSaveButton &&
+        (!showSaveButtonLoading ? (
+          <Button
+            onClick={onClickSave}
+            variant="contained"
+            disableElevation
+            sx={{flex: showBackButton && smDown && 1}}
+            startIcon={<Icon>save</Icon>}
+            color="success"
+          >
+            <Typography variant="button" noWrap>
+              Save
+            </Typography>
+          </Button>
+        ) : (
+          <Skeleton animation="wave" sx={{ transform: 'unset' }}>
             <Button
               onClick={onClickSave}
               variant="contained"
               disableElevation
+              sx={{flex: showBackButton && smDown && 1}}
               startIcon={<Icon>save</Icon>}
               color="success"
             >
-              Save
-            </Button>
-          ) : (
-            <Skeleton animation="wave" sx={{ transform: 'unset' }}>
-              <Button
-                onClick={onClickSave}
-                variant="contained"
-                disableElevation
-                startIcon={<Icon>save</Icon>}
-                color="success"
-              >
+              <Typography variant="button" noWrap>
                 Save
-              </Button>
-            </Skeleton>
-          ))}
+              </Typography>
+            </Button>
+          </Skeleton>
+        ))}
 
-        {showDeleteButton &&
-          (showDeleteButtonLoading ? (
+      {showDeleteButton &&
+        (!showDeleteButtonLoading ? (
+          <Button
+            onClick={onClickDelete}
+            variant="contained"
+            disableElevation
+            sx={{flex: showBackButton && smDown && 1}}
+            startIcon={<Icon>delete</Icon>}
+            color="error"
+          >
+            <Typography variant="button" noWrap>
+              Delete
+            </Typography>
+          </Button>
+        ) : (
+          <Skeleton animation="wave" sx={{ transform: 'unset' }}>
             <Button
-              onClick={onClickDelete}
               variant="contained"
               disableElevation
+              sx={{flex: showBackButton && smDown && 1}}
               startIcon={<Icon>delete</Icon>}
               color="error"
+              disabled
             >
-              Delete
-            </Button>
-          ) : (
-            <Skeleton animation="wave" sx={{ transform: 'unset' }}>
-              <Button
-                variant="contained"
-                disableElevation
-                startIcon={<Icon>delete</Icon>}
-                color="error"
-                disabled
-              >
+              <Typography variant="button" noWrap>
                 Loading...
-              </Button>
-            </Skeleton>
-          ))}
-      </Box>
+              </Typography>
+            </Button>
+          </Skeleton>
+        ))}
     </Box>
   );
 };
