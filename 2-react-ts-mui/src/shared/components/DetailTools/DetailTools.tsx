@@ -70,7 +70,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
             onClick={onClickBack}
             variant="contained"
             disableElevation
-            sx={{flex: showBackButton && smDown && 1}}
+            sx={{ flex: showBackButton && smDown ? 1 : '' }}
             startIcon={<Icon>arrow_back</Icon>}
           >
             <Typography variant="button" noWrap>
@@ -83,7 +83,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
               onClick={onClickBack}
               variant="contained"
               disableElevation
-              sx={{flex: showBackButton && smDown && 1}}
+              sx={{ flex: showBackButton && smDown ? 1 : '' }}
               startIcon={<Icon>arrow_back</Icon>}
             >
               <Typography variant="button" noWrap>
@@ -94,13 +94,14 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
         ))}
 
       {showNewButton &&
-        !smDown && !mdDown &&
+        !smDown &&
+        !mdDown &&
         (!showNewButtonLoading ? (
           <Button
             onClick={onClickNew}
             variant="contained"
             disableElevation
-            sx={{flex: showBackButton && smDown && 1}}
+            sx={{ flex: showBackButton && smDown ? 1 : '' }}
             startIcon={<Icon>add</Icon>}
             color="info"
           >
@@ -114,7 +115,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
               onClick={onClickNew}
               variant="contained"
               disableElevation
-              sx={{flex: showBackButton && smDown && 1}}
+              sx={{ flex: showBackButton && smDown ? 1 : '' }}
               startIcon={<Icon>add</Icon>}
               color="info"
             >
@@ -131,7 +132,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
             onClick={onClickSave}
             variant="contained"
             disableElevation
-            sx={{flex: showBackButton && smDown && 1}}
+            sx={{ flex: showBackButton && smDown ? 1 : '' }}
             startIcon={<Icon>save</Icon>}
             color="success"
           >
@@ -145,7 +146,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
               onClick={onClickSave}
               variant="contained"
               disableElevation
-              sx={{flex: showBackButton && smDown && 1}}
+              sx={{ flex: showBackButton && smDown ? 1 : '' }}
               startIcon={<Icon>save</Icon>}
               color="success"
             >
@@ -162,7 +163,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
             onClick={onClickDelete}
             variant="contained"
             disableElevation
-            sx={{flex: showBackButton && smDown && 1}}
+            sx={{ flex: showBackButton && smDown ? 1 : '' }}
             startIcon={<Icon>delete</Icon>}
             color="error"
           >
@@ -175,7 +176,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
             <Button
               variant="contained"
               disableElevation
-              sx={{flex: showBackButton && smDown && 1}}
+              sx={{ flex: showBackButton && smDown ? 1 : '' }}
               startIcon={<Icon>delete</Icon>}
               color="error"
               disabled
