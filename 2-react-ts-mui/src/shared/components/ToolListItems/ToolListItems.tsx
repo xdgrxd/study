@@ -7,6 +7,7 @@ import {
   TextField,
   useTheme,
 } from '@mui/material';
+import { Environment } from '../../environment';
 
 interface IToolBar {
   searchText?: string; //   ?:  ===  ISN'T REQUIRED (MAY BE UNDEFINED)
@@ -44,7 +45,7 @@ export const ToolListItems: React.FC<IToolBar> = ({
           size="small"
           value={searchText}
           onChange={(e) => searchTextOnChange?.(e.target.value)}
-          placeholder="Search here..."
+          placeholder={Environment.PLACEHOLDER_SEARCH_INPUT}
           slotProps={{
             input: {
               startAdornment: (
