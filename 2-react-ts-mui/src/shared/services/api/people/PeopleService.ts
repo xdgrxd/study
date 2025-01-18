@@ -31,7 +31,9 @@ const getAll = async (
     if (data) {
       return {
         data,
-        totalCount: Number(headers['x-total-count'] || Environment.LISTING_LINES_LIMIT),
+        totalCount: Number(
+          headers['x-total-count'] || Environment.LISTING_LINES_LIMIT
+        ),
       };
     }
 
@@ -98,7 +100,6 @@ const updateById = async (
 ): Promise<void | Error> => {
   try {
     const relativeUrl = `/people/${id}`;
-
     await Api.put<IPersonDetail>(relativeUrl, userData);
   } catch (error) {
     console.error(error);
