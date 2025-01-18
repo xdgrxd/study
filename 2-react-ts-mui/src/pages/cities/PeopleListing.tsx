@@ -1,22 +1,33 @@
 import { useSearchParams } from 'react-router-dom';
 import { ToolListItems } from '../../shared/components';
 import { DefaultPageLayout } from '../../shared/layouts';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
+import { PeopleService } from '../../shared/services/api/people/PeopleService';
 
-export const CitiesListing: React.FC = () => {
+export const PeopleListing: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const search = useMemo(() => {
     return searchParams.get('search') || '';
   }, [searchParams]);
 
+  useEffect(() => {
+    PeopleService.getAll(1, search).then((result) => {
+      if (result instanceof Error) {
+        alert(result.message);
+      } else {
+        console.log(result)
+      }
+    })
+  }, [search]);
+
   return (
     <DefaultPageLayout
-      title="Cities Listing"
+      title="People Listing"
       toolBar={
         <ToolListItems
           showSearchInput
-          buttonNewText="New city"
+          buttonNewText="New person"
           searchText={search}
           searchTextOnChange={(text) =>
             setSearchParams({ search: text }, { replace: true })

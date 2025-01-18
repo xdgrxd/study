@@ -24,18 +24,19 @@ const getAll = async (
   filter = ''
 ): Promise<IPersonWithTotalCount | Error> => {
   try {
-    const relativeUrl = `/people?_page=${page}&_limit=${Environment.LISTING_LINES_LIMIT}&fullName_like=${filter}`;
+    const relativeUrl = `/people?_page=${page}&_per_page=${Environment.LISTING_LINES_LIMIT}&fullName_like=${filter}`;
 
     const { data, headers } = await Api.get(relativeUrl);
 
     if (data) {
       return {
         data,
-        totalCount: Number(
-          headers['x-total-count'] || Environment.LISTING_LINES_LIMIT
-        ),
+        totalCount: Number(headers['x-total-count'] || Environment.LISTING_LINES_LIMIT),
       };
     }
+
+    console.log('Headers:' + headers);
+    console.log('Data:', data);
 
     return new Error('Error when listing services.');
   } catch (error) {
@@ -69,7 +70,9 @@ const getById = async (id: number): Promise<IPersonDetail | Error> => {
   }
 };
 
-const create = async (data: Omit<IPersonDetail, "id">): Promise<number | Error> => {
+const create = async (
+  data: Omit<IPersonDetail, 'id'>
+): Promise<number | Error> => {
   try {
     const relativeUrl = '/people/';
 
@@ -84,13 +87,15 @@ const create = async (data: Omit<IPersonDetail, "id">): Promise<number | Error> 
     console.error(error);
 
     return new Error(
-      (error as { message: string }).message ||
-        'Error when create register.'
+      (error as { message: string }).message || 'Error when create register.'
     );
   }
 };
 
-const updateById = async (id: number, userData: IPersonDetail): Promise<void | Error> => {
+const updateById = async (
+  id: number,
+  userData: IPersonDetail
+): Promise<void | Error> => {
   try {
     const relativeUrl = `/people/${id}`;
 
@@ -99,8 +104,7 @@ const updateById = async (id: number, userData: IPersonDetail): Promise<void | E
     console.error(error);
 
     return new Error(
-      (error as { message: string }).message ||
-        'Error when update register.'
+      (error as { message: string }).message || 'Error when update register.'
     );
   }
 };
