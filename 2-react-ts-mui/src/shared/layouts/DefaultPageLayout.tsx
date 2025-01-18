@@ -12,7 +12,7 @@ import { useDrawerContext } from '../contexts';
 
 interface IDefaultPageLayoutProps {
   title: string;
-  children: string;
+  children: React.ReactNode;
   toolBar?: ReactNode;
 }
 

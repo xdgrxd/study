@@ -1,7 +1,7 @@
 import { Environment } from '../../../environment';
 import { Api } from '../../api/axios-config';
 
-interface IListingPerson {
+export interface IListingPerson {
   id: number;
   cityId: number;
   fullName: string;

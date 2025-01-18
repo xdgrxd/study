@@ -1,22 +1,43 @@
+import {
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from '@mui/material';
+import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+
 import { ToolListItems } from '../../shared/components';
 import { DefaultPageLayout } from '../../shared/layouts';
-import { useEffect, useMemo } from 'react';
-import { PeopleService } from '../../shared/services/api/people/PeopleService';
+import {
+  IListingPerson,
+  PeopleService,
+} from '../../shared/services/api/people/PeopleService';
 import { useDebounce } from '../../hooks';
 
 export const PeopleListing: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const { debounce } = useDebounce(3000);
+  const { debounce } = useDebounce();
+
+  const [rows, setRows] = useState<IListingPerson[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [totalCount, setTotalCount] = useState(0);
 
   const search = useMemo(() => {
     return searchParams.get('search') || '';
   }, [searchParams]);
 
   useEffect(() => {
+    setIsLoading(true);
+
     debounce(() => {
       PeopleService.getAll(1, search).then((result) => {
+        setIsLoading(false);
+
         if (result instanceof Error) {
           alert(result.message);
         } else {
@@ -40,7 +61,30 @@ export const PeopleListing: React.FC = () => {
         />
       }
     >
-      a
+      <TableContainer
+        component={Paper}
+        variant="outlined"
+        sx={{ m: 1, width: 'auto' }}
+      >
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Actions</TableCell>
+              <TableCell>Full Name</TableCell>
+              <TableCell>Email</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow key={row.id}>
+                <TableCell>{row.fullName}</TableCell>
+                <TableCell>{row.fullName}</TableCell>
+                <TableCell>{row.email}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </DefaultPageLayout>
   );
 };
