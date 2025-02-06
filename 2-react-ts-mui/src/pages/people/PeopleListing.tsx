@@ -20,8 +20,7 @@ import { useDebounce } from '../../hooks';
 
 export const PeopleListing: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-
-  const { debounce } = useDebounce();
+  const { debounce } = useDebounce(3000, false);
 
   const [rows, setRows] = useState<IListingPerson[]>([]);
   const [isLoading, setIsLoading] = useState(true);

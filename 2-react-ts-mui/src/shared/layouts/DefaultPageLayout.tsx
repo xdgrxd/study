@@ -24,10 +24,17 @@ export const DefaultPageLayout: React.FC<IDefaultPageLayoutProps> = ({
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
   const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
   const theme = useTheme();
+  const spacing = theme.spacing;
   const { toggleDrawerOpen } = useDrawerContext();
 
   return (
-    <Box height="100%" display="flex" flexDirection="column" gap={1}>
+    <Box
+      height="100%"
+      display="flex"
+      flexDirection="column"
+      gap={1}
+      paddingX={spacing(smDown ? 0 : mdDown ? 0 : 5)}
+    >
       <Box
         padding={1}
         display="flex"
