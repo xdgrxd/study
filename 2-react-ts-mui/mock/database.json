@@ -1,34 +1,184 @@
 {
   "people": [
-    { "id": 1, "fullName": "Jooka", "lastName": "Silva" },
-    { "id": 2, "fullName": "Ana", "lastName": "Pereira" },
-    { "id": 3, "fullName": "Carlos", "lastName": "Oliveira" },
-    { "id": 4, "fullName": "Mariana", "lastName": "Souza" },
-    { "id": 5, "fullName": "Paulo", "lastName": "Lima" },
-    { "id": 6, "fullName": "Fernanda", "lastName": "Almeida" },
-    { "id": 7, "fullName": "João", "lastName": "Costa" },
-    { "id": 8, "fullName": "Clara", "lastName": "Santos" },
-    { "id": 9, "fullName": "Lucas", "lastName": "Ferreira" },
-    { "id": 10, "fullName": "Rafaela", "lastName": "Mendes" },
-    { "id": 11, "fullName": "Gabriel", "lastName": "Barros" },
-    { "id": 12, "fullName": "Bianca", "lastName": "Rocha" },
-    { "id": 13, "fullName": "Pedro", "lastName": "Nascimento" },
-    { "id": 14, "fullName": "Letícia", "lastName": "Martins" },
-    { "id": 15, "fullName": "André", "lastName": "Ramos" },
-    { "id": 16, "fullName": "Camila", "lastName": "Gomes" },
-    { "id": 17, "fullName": "Ricardo", "lastName": "Cardoso" },
-    { "id": 18, "fullName": "Viviane", "lastName": "Teixeira" },
-    { "id": 19, "fullName": "Felipe", "lastName": "Azevedo" },
-    { "id": 20, "fullName": "Juliana", "lastName": "Vieira" },
-    { "id": 21, "fullName": "Marcelo", "lastName": "Batista" },
-    { "id": 22, "fullName": "Renata", "lastName": "Dias" },
-    { "id": 23, "fullName": "Vinícius", "lastName": "Cavalcante" },
-    { "id": 24, "fullName": "Larissa", "lastName": "Monteiro" },
-    { "id": 25, "fullName": "Fábio", "lastName": "Moura" },
-    { "id": 26, "fullName": "Natália", "lastName": "Moreira" },
-    { "id": 27, "fullName": "Thiago", "lastName": "Borges" },
-    { "id": 28, "fullName": "Isabela", "lastName": "Pinto" },
-    { "id": 29, "fullName": "Rodrigo", "lastName": "Souza" },
-    { "id": 30, "fullName": "Débora", "lastName": "Camargo" }
+    {
+      "id": 1,
+      "fullName": "Jooka",
+      "lastName": "Silva",
+      "email": "j.silva@email.com"
+    },
+    {
+      "id": 2,
+      "fullName": "Ana",
+      "lastName": "Pereira",
+      "email": "ana.pereira@email.com"
+    },
+    {
+      "id": 3,
+      "fullName": "Carlos",
+      "lastName": "Oliveira",
+      "email": "c.oliveira@email.com"
+    },
+    {
+      "id": 4,
+      "fullName": "Mariana",
+      "lastName": "Souza",
+      "email": "mariana.souza@email.com"
+    },
+    {
+      "id": 5,
+      "fullName": "Paulo",
+      "lastName": "Lima",
+      "email": "paulo92@email.com"
+    },
+    {
+      "id": 6,
+      "fullName": "Fernanda",
+      "lastName": "Almeida",
+      "email": "f.almeida@email.com"
+    },
+    {
+      "id": 7,
+      "fullName": "João",
+      "lastName": "Costa",
+      "email": "joao.costa@email.com"
+    },
+    {
+      "id": 8,
+      "fullName": "Clara",
+      "lastName": "Santos",
+      "email": "clara87@email.com"
+    },
+    {
+      "id": 9,
+      "fullName": "Lucas",
+      "lastName": "Ferreira",
+      "email": "l.ferreira@email.com"
+    },
+    {
+      "id": 10,
+      "fullName": "Rafaela",
+      "lastName": "Mendes",
+      "email": "rafaela.mendes@email.com"
+    },
+    {
+      "id": 11,
+      "fullName": "Gabriel",
+      "lastName": "Barros",
+      "email": "gabriel56@email.com"
+    },
+    {
+      "id": 12,
+      "fullName": "Bianca",
+      "lastName": "Rocha",
+      "email": "b.rocha@email.com"
+    },
+    {
+      "id": 13,
+      "fullName": "Pedro",
+      "lastName": "Nascimento",
+      "email": "pedro.nascimento@email.com"
+    },
+    {
+      "id": 14,
+      "fullName": "Letícia",
+      "lastName": "Martins",
+      "email": "leticia34@email.com"
+    },
+    {
+      "id": 15,
+      "fullName": "André",
+      "lastName": "Ramos",
+      "email": "a.ramos@email.com"
+    },
+    {
+      "id": 16,
+      "fullName": "Camila",
+      "lastName": "Gomes",
+      "email": "camila.gomes@email.com"
+    },
+    {
+      "id": 17,
+      "fullName": "Ricardo",
+      "lastName": "Cardoso",
+      "email": "ricardo78@email.com"
+    },
+    {
+      "id": 18,
+      "fullName": "Viviane",
+      "lastName": "Teixeira",
+      "email": "v.teixeira@email.com"
+    },
+    {
+      "id": 19,
+      "fullName": "Felipe",
+      "lastName": "Azevedo",
+      "email": "felipe.azevedo@email.com"
+    },
+    {
+      "id": 20,
+      "fullName": "Juliana",
+      "lastName": "Vieira",
+      "email": "juliana90@email.com"
+    },
+    {
+      "id": 21,
+      "fullName": "Marcelo",
+      "lastName": "Batista",
+      "email": "m.batista@email.com"
+    },
+    {
+      "id": 22,
+      "fullName": "Renata",
+      "lastName": "Dias",
+      "email": "renata.dias@email.com"
+    },
+    {
+      "id": 23,
+      "fullName": "Vinícius",
+      "lastName": "Cavalcante",
+      "email": "vinicius45@email.com"
+    },
+    {
+      "id": 24,
+      "fullName": "Larissa",
+      "lastName": "Monteiro",
+      "email": "l.monteiro@email.com"
+    },
+    {
+      "id": 25,
+      "fullName": "Fábio",
+      "lastName": "Moura",
+      "email": "fabio.moura@email.com"
+    },
+    {
+      "id": 26,
+      "fullName": "Natália",
+      "lastName": "Moreira",
+      "email": "natalia66@email.com"
+    },
+    {
+      "id": 27,
+      "fullName": "Thiago",
+      "lastName": "Borges",
+      "email": "t.borges@email.com"
+    },
+    {
+      "id": 28,
+      "fullName": "Isabela",
+      "lastName": "Pinto",
+      "email": "isabela.pinto@email.com"
+    },
+    {
+      "id": 29,
+      "fullName": "Rodrigo",
+      "lastName": "Souza",
+      "email": "rodrigo99@email.com"
+    },
+    {
+      "id": 30,
+      "fullName": "Débora",
+      "lastName": "Camargo",
+      "email": "d.camargo@email.com"
+    }
   ]
 }

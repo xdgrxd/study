@@ -20,11 +20,11 @@ import { useDebounce } from '../../hooks';
 
 export const PeopleListing: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { debounce } = useDebounce(3000, false);
+  const { debounce } = useDebounce();
 
   const [rows, setRows] = useState<IListingPerson[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [totalCount, setTotalCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   const search = useMemo(() => {
     return searchParams.get('search') || '';
@@ -32,15 +32,18 @@ export const PeopleListing: React.FC = () => {
 
   useEffect(() => {
     setIsLoading(true);
-
+    
     debounce(() => {
       PeopleService.getAll(1, search).then((result) => {
         setIsLoading(false);
-
+        
         if (result instanceof Error) {
           alert(result.message);
         } else {
           console.log(result);
+
+          setTotalCount(result.totalCount)
+          setRows(result.data);
         }
       });
     });

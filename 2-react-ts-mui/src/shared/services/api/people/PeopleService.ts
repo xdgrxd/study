@@ -7,7 +7,7 @@ export interface IListingPerson {
   fullName: string;
   email: string;
 }
-interface IPersonDetail {
+export interface IPersonDetail {
   id: number;
   cityId: number;
   fullName: string;
