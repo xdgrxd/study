@@ -1,9 +1,11 @@
 import {
+  LinearProgress,
   Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
+  TableFooter,
   TableHead,
   TableRow,
 } from '@mui/material';
@@ -17,6 +19,7 @@ import {
   PeopleService,
 } from '../../shared/services/api/people/PeopleService';
 import { useDebounce } from '../../hooks';
+import { Environment } from '../../shared/environment';
 
 export const PeopleListing: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -32,17 +35,17 @@ export const PeopleListing: React.FC = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    
+
     debounce(() => {
       PeopleService.getAll(1, search).then((result) => {
         setIsLoading(false);
-        
+
         if (result instanceof Error) {
           alert(result.message);
         } else {
           console.log(result);
 
-          setTotalCount(result.totalCount)
+          setTotalCount(result.totalCount);
           setRows(result.data);
         }
       });
@@ -85,6 +88,20 @@ export const PeopleListing: React.FC = () => {
               </TableRow>
             ))}
           </TableBody>
+
+          {totalCount === 0 && !isLoading && (
+            <caption>{Environment.EMPTY_LISTING}</caption>
+          )}
+
+          {isLoading && (
+            <TableFooter>
+              <TableRow>
+                <TableCell colSpan={3}>
+                  <LinearProgress variant="indeterminate" />
+                </TableCell>
+              </TableRow>
+            </TableFooter>
+          )}
         </Table>
       </TableContainer>
     </DefaultPageLayout>
