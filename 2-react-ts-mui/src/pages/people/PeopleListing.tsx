@@ -1,5 +1,6 @@
 import {
   LinearProgress,
+  Pagination,
   Paper,
   Table,
   TableBody,
@@ -33,11 +34,15 @@ export const PeopleListing: React.FC = () => {
     return searchParams.get('search') || '';
   }, [searchParams]);
 
+  const page = useMemo(() => {
+    return Number(searchParams.get('page') || '');
+  }, [searchParams]);
+
   useEffect(() => {
     setIsLoading(true);
 
     debounce(() => {
-      PeopleService.getAll(1, search).then((result) => {
+      PeopleService.getAll(page, search).then((result) => {
         setIsLoading(false);
 
         if (result instanceof Error) {
@@ -61,7 +66,7 @@ export const PeopleListing: React.FC = () => {
           buttonNewText="New person"
           searchText={search}
           searchTextOnChange={(text) =>
-            setSearchParams({ search: text }, { replace: true })
+            setSearchParams({ search: text, page: "1" }, { replace: true })
           }
         />
       }
@@ -93,15 +98,34 @@ export const PeopleListing: React.FC = () => {
             <caption>{Environment.EMPTY_LISTING}</caption>
           )}
 
-          {isLoading && (
-            <TableFooter>
+          <TableFooter>
+            {isLoading && (
               <TableRow>
                 <TableCell colSpan={3}>
                   <LinearProgress variant="indeterminate" />
                 </TableCell>
               </TableRow>
-            </TableFooter>
-          )}
+            )}
+
+            {totalCount > 0 && totalCount > Environment.LISTING_LINES_LIMIT && (
+              <TableRow>
+                <TableCell colSpan={3}>
+                  <Pagination
+                    page={page}
+                    count={Math.ceil(
+                      totalCount / Environment.LISTING_LINES_LIMIT
+                    )}
+                    onChange={(_, newPage) =>
+                      setSearchParams(
+                        { search, page: newPage.toString() },
+                        { replace: true }
+                      )
+                    }
+                  />
+                </TableCell>
+              </TableRow>
+            )}
+          </TableFooter>
         </Table>
       </TableContainer>
     </DefaultPageLayout>
