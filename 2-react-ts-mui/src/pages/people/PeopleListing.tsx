@@ -55,7 +55,7 @@ export const PeopleListing: React.FC = () => {
         }
       });
     });
-  }, [search]);
+  }, [search, page]);
 
   return (
     <DefaultPageLayout
@@ -66,7 +66,7 @@ export const PeopleListing: React.FC = () => {
           buttonNewText="New person"
           searchText={search}
           searchTextOnChange={(text) =>
-            setSearchParams({ search: text, page: "1" }, { replace: true })
+            setSearchParams({ search: text, page: '1' }, { replace: true })
           }
         />
       }
