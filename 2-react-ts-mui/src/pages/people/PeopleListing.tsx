@@ -1,4 +1,6 @@
 import {
+  Icon,
+  IconButton,
   LinearProgress,
   Pagination,
   Paper,
@@ -11,7 +13,7 @@ import {
   TableRow,
 } from '@mui/material';
 import { useEffect, useMemo, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { ToolListItems } from '../../shared/components';
 import { DefaultPageLayout } from '../../shared/layouts';
@@ -25,6 +27,7 @@ import { Environment } from '../../shared/environment';
 export const PeopleListing: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { debounce } = useDebounce();
+  const navigate = useNavigate();
 
   const [rows, setRows] = useState<IListingPerson[]>([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -57,6 +60,21 @@ export const PeopleListing: React.FC = () => {
     });
   }, [search, page]);
 
+  const handleDelete = (id: number) => {
+    if (confirm('Do you want to delete this?')) {
+      PeopleService.deleteById(id).then((result) => {
+        if (result instanceof Error) {
+          alert(result.message);
+        } else {
+          setRows((oldRows) => [
+            ...oldRows.filter((oldRow) => oldRow.id !== id),
+          ]);
+          alert('Register has been deleted!');
+        }
+      });
+    }
+  };
+
   return (
     <DefaultPageLayout
       title="People Listing"
@@ -79,17 +97,24 @@ export const PeopleListing: React.FC = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Actions</TableCell>
-              <TableCell>Full Name</TableCell>
-              <TableCell>Email</TableCell>
+              <TableCell size="small">Actions</TableCell>
+              <TableCell size="small">Full Name</TableCell>
+              <TableCell size="small">Email</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
               <TableRow key={row.id}>
-                <TableCell>{row.fullName}</TableCell>
-                <TableCell>{row.fullName}</TableCell>
-                <TableCell>{row.email}</TableCell>
+                <TableCell size="small">
+                  <IconButton size="small" onClick={() => handleDelete(row.id)}>
+                    <Icon>delete</Icon>
+                  </IconButton>
+                  <IconButton size="small" onClick={() => navigate(`/people/detail/${row.id}`)}>
+                    <Icon>edit</Icon>
+                  </IconButton>
+                </TableCell>
+                <TableCell size="small">{row.fullName}</TableCell>
+                <TableCell size="small">{row.email}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -109,7 +134,7 @@ export const PeopleListing: React.FC = () => {
 
             {totalCount > 0 && totalCount > Environment.LISTING_LINES_LIMIT && (
               <TableRow>
-                <TableCell colSpan={3}>
+                <TableCell colSpan={3} size="small">
                   <Pagination
                     page={page}
                     count={Math.ceil(

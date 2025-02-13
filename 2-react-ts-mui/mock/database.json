@@ -167,18 +167,6 @@
       "fullName": "Isabela",
       "lastName": "Pinto",
       "email": "isabela.pinto@email.com"
-    },
-    {
-      "id": 29,
-      "fullName": "Rodrigo",
-      "lastName": "Souza",
-      "email": "rodrigo99@email.com"
-    },
-    {
-      "id": 30,
-      "fullName": "Débora",
-      "lastName": "Camargo",
-      "email": "d.camargo@email.com"
     }
   ]
 }

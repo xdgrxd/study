@@ -4,7 +4,7 @@ export const Environment = {
   /**
    * DESCRIPTION HERE (IN ENVIRONMENT).
    */
-  LISTING_LINES_LIMIT: 10,
+  LISTING_LINES_LIMIT: 12,
   /**
    * DESCRIPTION HERE (IN ENVIRONMENT).
    */

@@ -24,7 +24,7 @@ const getAll = async (
   filter = ''
 ): Promise<IPersonWithTotalCount | Error> => {
   try {
-    const relativeUrl = `/people?_page=${page}&_per_page=${Environment.LISTING_LINES_LIMIT}&fullName_like=${filter}`;
+    const relativeUrl = `/people?_page=${page}&_limit=${Environment.LISTING_LINES_LIMIT}&fullName_like=${filter}`;
 
     const { data, headers } = await Api.get(relativeUrl);
 
