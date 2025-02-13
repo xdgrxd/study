@@ -68,7 +68,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
         (!showBackButtonLoading ? (
           <Button
             onClick={onClickBack}
-            variant="contained"
+            variant="outlined"
             disableElevation
             sx={{ flex: showBackButton && smDown ? 1 : '' }}
             startIcon={<Icon>arrow_back</Icon>}
@@ -81,7 +81,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
           <Skeleton animation="wave" sx={{ transform: 'unset' }}>
             <Button
               onClick={onClickBack}
-              variant="contained"
+              variant="outlined"
               disableElevation
               sx={{ flex: showBackButton && smDown ? 1 : '' }}
               startIcon={<Icon>arrow_back</Icon>}
@@ -99,11 +99,10 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
         (!showNewButtonLoading ? (
           <Button
             onClick={onClickNew}
-            variant="contained"
+            variant="outlined"
             disableElevation
             sx={{ flex: showBackButton && smDown ? 1 : '' }}
             startIcon={<Icon>add</Icon>}
-            color="info"
           >
             <Typography variant="button" noWrap>
               {buttonNewText}
@@ -113,11 +112,10 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
           <Skeleton animation="wave" sx={{ transform: 'unset' }}>
             <Button
               onClick={onClickNew}
-              variant="contained"
+              variant="outlined"
               disableElevation
               sx={{ flex: showBackButton && smDown ? 1 : '' }}
               startIcon={<Icon>add</Icon>}
-              color="info"
             >
               <Typography variant="button" noWrap>
                 {buttonNewText}
@@ -126,6 +124,35 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
           </Skeleton>
         ))}
 
+      {showDeleteButton &&
+        (!showDeleteButtonLoading ? (
+          <Button
+            onClick={onClickDelete}
+            variant="outlined"
+            disableElevation
+            sx={{ flex: showBackButton && smDown ? 1 : '' }}
+            startIcon={<Icon>delete</Icon>}
+          >
+            <Typography variant="button" noWrap>
+              Delete
+            </Typography>
+          </Button>
+        ) : (
+          <Skeleton animation="wave" sx={{ transform: 'unset' }}>
+            <Button
+              variant="outlined"
+              disableElevation
+              sx={{ flex: showBackButton && smDown ? 1 : '' }}
+              startIcon={<Icon>delete</Icon>}
+              disabled
+            >
+              <Typography variant="button" noWrap>
+                Loading...
+              </Typography>
+            </Button>
+          </Skeleton>
+        ))}
+      
       {showSaveButton &&
         (!showSaveButtonLoading ? (
           <Button
@@ -134,7 +161,6 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
             disableElevation
             sx={{ flex: showBackButton && smDown ? 1 : '' }}
             startIcon={<Icon>save</Icon>}
-            color="success"
           >
             <Typography variant="button" noWrap>
               Save
@@ -148,41 +174,9 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
               disableElevation
               sx={{ flex: showBackButton && smDown ? 1 : '' }}
               startIcon={<Icon>save</Icon>}
-              color="success"
             >
               <Typography variant="button" noWrap>
                 Save
-              </Typography>
-            </Button>
-          </Skeleton>
-        ))}
-
-      {showDeleteButton &&
-        (!showDeleteButtonLoading ? (
-          <Button
-            onClick={onClickDelete}
-            variant="contained"
-            disableElevation
-            sx={{ flex: showBackButton && smDown ? 1 : '' }}
-            startIcon={<Icon>delete</Icon>}
-            color="error"
-          >
-            <Typography variant="button" noWrap>
-              Delete
-            </Typography>
-          </Button>
-        ) : (
-          <Skeleton animation="wave" sx={{ transform: 'unset' }}>
-            <Button
-              variant="contained"
-              disableElevation
-              sx={{ flex: showBackButton && smDown ? 1 : '' }}
-              startIcon={<Icon>delete</Icon>}
-              color="error"
-              disabled
-            >
-              <Typography variant="button" noWrap>
-                Loading...
               </Typography>
             </Button>
           </Skeleton>

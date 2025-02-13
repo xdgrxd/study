@@ -53,6 +53,7 @@ export const DefaultPageLayout: React.FC<IDefaultPageLayoutProps> = ({
           overflow="hidden"
           whiteSpace="nowrap"
           textOverflow="ellipsis"
+          fontWeight={700}
         >
           {title}
         </Typography>
